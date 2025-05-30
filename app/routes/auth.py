@@ -11,12 +11,13 @@ auth_bp = Blueprint("auth", __name__)
 @auth_bp.route("/sync-profile", methods=["POST"])
 def sync_profile():
     try:
+        print("➡️  Requête reçue sur /auth/sync-profile")
         data = request.get_json()
         user_id = data.get("id")
         email = data.get("email")
         role = data.get("role")
         full_name = data.get("full_name") # Optionnel, souvent présent pour les utilisateurs OAuth
-
+        
         # --- Validation des données reçues du frontend ---
         if not all([user_id, email, role]):
             return jsonify({
