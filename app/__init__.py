@@ -26,6 +26,7 @@ def create_app():
     from app.routes.application import application_bp
     from app.routes.interview import interview_bp
     from app.routes.notification import notification_bp
+    from app.routes.dashboard import dashboard_bp
 
     app.register_blueprint(recruiter_bp, url_prefix="/recruiters")
     app.register_blueprint(candidate_bp, url_prefix="/candidates")
@@ -34,5 +35,7 @@ def create_app():
     app.register_blueprint(application_bp, url_prefix="/applications")
     app.register_blueprint(interview_bp, url_prefix="/interviews")
     app.register_blueprint(notification_bp, url_prefix="/notifications")
+    app.register_blueprint(dashboard_bp, url_prefix="/api")
+
 
     return app
